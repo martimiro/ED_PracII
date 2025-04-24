@@ -1,3 +1,6 @@
+#ifndef BSTTREE_H
+#define BSTTREE_H
+
 #include <iostream>
 
 using namespace std;
@@ -30,3 +33,5 @@ class BSTtree {
         int _size; 
         /* Mètodes auxiliars definiu aquí els que necessiteu */ 
 }; 
+
+#endif /* BSTTREE_H */

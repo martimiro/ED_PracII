@@ -1,3 +1,6 @@
+#ifndef NODETREE_H
+#define NODETREE_H
+
 #include <iostream>
 
 using namespace std;
@@ -11,12 +14,20 @@ class NODEtree {
 
         /* Modificadors */
         // Declareu-hi aquí els modificadors (setters) dels atributs que manquen
-        /* Consultors */
+        void setKey(Key key);
+        void setValue(Value value);
 
+        void setRight(Node<Key, Value>* right);
+        void setLeft(Node<Key, Value>* left);
+
+        /* Consultors */
+        // Declareu-hi aquí els consultors (getters) dels atributs que manquen
         const Key& getKey() const;
         const vector<Value>& getValue() const;
 
-        // Declareu-hi aquí els consultors (getters) dels atributs que manquen
+        const Node<Key, Value>* getRight() const;
+        const Node<Key, Value>* getLeft() const;
+
         /* Operacions */
         bool isRoot() const;
         bool hasLeft() const;
@@ -26,10 +37,15 @@ class NODEtree {
         void insertValue(const V& v);
         int depth() const;
         int height() const;
-        bool operator==(const BSTNode<K,V>& node) const;
+        bool operator==(const BSTNode<Key, Value>& node) const;
 
     private:
         Key key;
         vector<Value> values;
         // Afegiu-hi aquí els atributs que manquen
+        Node<Key, Value>* right;
+        Node<Key, Value>* left;
+
 };
+
+#endif /* NODETREE_H */
