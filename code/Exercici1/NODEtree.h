@@ -17,16 +17,18 @@ class NODEtree {
         void setKey(Key key);
         void setValue(Value value);
 
-        void setRight(Node<Key, Value>* right);
-        void setLeft(Node<Key, Value>* left);
+        void setRight(NODEtree* right);
+        void setLeft(NODEtree* left);
+        void setParent(NODEtree* parent);
 
         /* Consultors */
         // Declareu-hi aquí els consultors (getters) dels atributs que manquen
         const Key& getKey() const;
         const vector<Value>& getValue() const;
 
-        const Node<Key, Value>* getRight() const;
-        const Node<Key, Value>* getLeft() const;
+        const NODEtree* getRight() const;
+        const NODEtree* getLeft() const;
+        const NODEtree* getParent() const;
 
         /* Operacions */
         bool isRoot() const;
@@ -43,9 +45,41 @@ class NODEtree {
         Key key;
         vector<Value> values;
         // Afegiu-hi aquí els atributs que manquen
-        Node<Key, Value>* right;
-        Node<Key, Value>* left;
-
+        NODEtree* right;
+        NODEtree* left;
+        NODEtree* parent;
 };
+
+// Constructor
+template <class Key, class Value>
+NODEtree <Key, Value> :: NODEtree(const Key& key) {}
+
+// Constructor còpia
+template <class Key, class Value>
+NODEtree <Key, Value> :: NODEtree(const NODEtree<Key,Value>& orig) {}
+
+// Destructor
+template <class Key, class Value>
+NODEtree <Key, Value> :: ~NODEtree() {}
+
+// Setters
+template <class Key, class Value>
+void NODEtree <Key, Value> :: setKey(Key key) { this -> key = key; }
+
+template <class Key, class Value>
+void NODEtree <Key, Value> :: setValue(Value value) { this -> value = value; }
+
+template <class Key, class Value>
+void NODEtree <Key, Value> :: setRight(NODEtree* right) { this -> right = right; }
+
+template <class Key, class Value>
+void NODEtree <Key, Value> :: setLeft(NODEtree* left) { this -> left = left; }
+
+template <class Key, class Value>
+void NODEtree <Key, Value> :: setParent(NODEtree* parent) { this -> parent = parent; }
+
+// Getters
+template <class Key, class Value>
+const NODEtree <Key, Value> :: Key& getKey() const {}
 
 #endif /* NODETREE_H */
