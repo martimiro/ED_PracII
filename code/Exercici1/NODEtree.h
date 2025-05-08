@@ -2,6 +2,7 @@
 #define NODETREE_H
 
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -52,34 +53,48 @@ class NODEtree {
 
 // Constructor
 template <class Key, class Value>
-NODEtree <Key, Value> :: NODEtree(const Key& key) {}
+NODEtree <Key, Value>::NODEtree(const Key& key) {}
 
 // Constructor còpia
 template <class Key, class Value>
-NODEtree <Key, Value> :: NODEtree(const NODEtree<Key,Value>& orig) {}
+NODEtree <Key, Value>::NODEtree(const NODEtree<Key,Value>& orig) {}
 
 // Destructor
 template <class Key, class Value>
-NODEtree <Key, Value> :: ~NODEtree() {}
+NODEtree <Key, Value>::~NODEtree() {}
 
 // Setters
 template <class Key, class Value>
-void NODEtree <Key, Value> :: setKey(Key key) { this -> key = key; }
+void NODEtree <Key, Value>::setKey(Key key) {this -> key = key;}
 
 template <class Key, class Value>
-void NODEtree <Key, Value> :: setValue(Value value) { this -> value = value; }
+void NODEtree <Key, Value>::setValue(Value value) {this -> value = value;}
 
 template <class Key, class Value>
-void NODEtree <Key, Value> :: setRight(NODEtree* right) { this -> right = right; }
+void NODEtree <Key, Value>::setRight(NODEtree* right) {this -> right = right;}
 
 template <class Key, class Value>
-void NODEtree <Key, Value> :: setLeft(NODEtree* left) { this -> left = left; }
+void NODEtree <Key, Value>::setLeft(NODEtree* left) {this -> left = left;}
 
 template <class Key, class Value>
-void NODEtree <Key, Value> :: setParent(NODEtree* parent) { this -> parent = parent; }
+void NODEtree <Key, Value>::setParent(NODEtree* parent) {this -> parent = parent;}
 
 // Getters
 template <class Key, class Value>
-const NODEtree <Key, Value> :: Key& getKey() const {}
+const Key& NODEtree<Key, Value>::getKey() const { return key;}
+
+template <class Key, class Value>
+const vector<Value>& NODEtree<Key, Value>::getValue() const {return values;}
+
+template <class Key, class Value>
+const NODEtree<Key, Value>* NODEtree<Key, Value>::getRight() const {return right;}
+
+template <class Key, class Value>
+const NODEtree<Key, Value>* NODEtree<Key, Value>::getLeft() const {return left;}
+
+template <class Key, class Value>
+const NODEtree<Key, Value>* NODEtree<Key, Value>::getParent() const {return parent;}
+
+// Altres mètodes
 
 #endif /* NODETREE_H */
