@@ -37,10 +37,10 @@ class NODEtree {
         bool hasRight() const;
         bool isExternal() const;
         
-        void insertValue(const V& v);
+        void insertValue(const Value& v); // Preguntar si es value o no
         int depth() const;
         int height() const;
-        bool operator==(const BSTNode<Key, Value>& node) const;
+        bool operator==(const NODEtree<Key, Value> &node) const; // Preguntar
 
     private:
         Key key;
@@ -96,5 +96,44 @@ template <class Key, class Value>
 const NODEtree<Key, Value>* NODEtree<Key, Value>::getParent() const {return parent;}
 
 // Altres mètodes
+template <class Key, class Value>
+bool NODEtree<Key, Value>::isRoot() const {
+
+}
+
+template <class Key, class Value>
+bool NODEtree<Key, Value>::hasLeft() const {
+
+}
+
+template <class Key, class Value>
+bool NODEtree<Key, Value>::hasRight() const {
+
+}
+
+template <class Key, class Value>
+bool NODEtree<Key, Value>::isExternal() const {
+
+}
+
+template <class Key, class Value>
+void NODEtree<Key, Value>::insertValue(const Value& v) {
+
+}
+
+template <class Key, class Value>
+int NODEtree<Key, Value>::depth() const {
+
+}
+
+template <class Key, class Value>
+int NODEtree<Key, Value>::height() const {
+
+}
+
+template <class Key, class Value>
+bool NODEtree<Key, Value>::operator==(const NODEtree<Key, Value>& node) const {
+
+}
 
 #endif /* NODETREE_H */
