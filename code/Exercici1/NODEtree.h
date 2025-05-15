@@ -53,15 +53,21 @@ class NODEtree {
 
 // Constructor
 template <class Key, class Value>
-NODEtree <Key, Value>::NODEtree(const Key& key) {}
+NODEtree <Key, Value>::NODEtree(const Key& key) {
+
+}
 
 // Constructor còpia
 template <class Key, class Value>
-NODEtree <Key, Value>::NODEtree(const NODEtree<Key,Value>& orig) {}
+NODEtree <Key, Value>::NODEtree(const NODEtree<Key,Value>& orig) {
+
+}
 
 // Destructor
 template <class Key, class Value>
-NODEtree <Key, Value>::~NODEtree() {}
+NODEtree <Key, Value>::~NODEtree() {
+    
+}
 
 // Setters
 template <class Key, class Value>

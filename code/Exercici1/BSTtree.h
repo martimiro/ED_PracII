@@ -32,6 +32,12 @@ class BSTtree {
     private: 
         int _size; 
         /* Mètodes auxiliars definiu aquí els que necessiteu */ 
-}; 
+};
+
+// Constructor
+template <class Key, class Value>
+BSTtree <Key, Value>::BSTtree() {
+    
+}
 
 #endif /* BSTTREE_H */
