@@ -156,22 +156,48 @@ bool NODEtree<Key, Value>::isExternal() const {
 template <class Key, class Value>
 void NODEtree<Key, Value>::insertValue(const Value& v) {
     this -> values.push_back(v);
-
 }
 
 template <class Key, class Value>
 int NODEtree<Key, Value>::depth() const {
-
+    if (this->getParent() == nullptr) {
+        return 0;
+    } else {
+        return 1 + getParent() -> depth();
+    }
 }
 
 template <class Key, class Value>
 int NODEtree<Key, Value>::height() const {
+    if (this -> getRight() == nullptr && this -> getLeft() == nullptr) {
+        return 0;
+    } else {
+        int heightEsq = 0;
+        int heightDrt = 0;
 
+        if (this -> getLeft() != nullptr) {
+            heightEsq = this -> getLeft() -> height();
+        }
+
+        if (this -> getRight() != nullptr) {
+            heightDrt = this -> getRight() -> height();
+        }
+
+        if (heightDrt > heightEsq) {
+            return heightDrt;
+        } else {
+            return heightEsq;
+        }
+    }
 }
 
 template <class Key, class Value>
 bool NODEtree<Key, Value>::operator==(const NODEtree<Key, Value>& node) const {
-
+    if (this -> getKey() == node -> getKey() && this -> getValue() == node -> getValue()) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 #endif /* NODETREE_H */
