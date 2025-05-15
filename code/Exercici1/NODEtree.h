@@ -66,7 +66,7 @@ NODEtree <Key, Value>::NODEtree(const NODEtree<Key,Value>& orig) {
 // Destructor
 template <class Key, class Value>
 NODEtree <Key, Value>::~NODEtree() {
-    
+
 }
 
 // Setters
