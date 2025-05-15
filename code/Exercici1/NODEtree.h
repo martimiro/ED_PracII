@@ -98,26 +98,44 @@ const NODEtree<Key, Value>* NODEtree<Key, Value>::getParent() const {return pare
 // Altres mètodes
 template <class Key, class Value>
 bool NODEtree<Key, Value>::isRoot() const {
-
+    if (this->getParent() == nullptr) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 template <class Key, class Value>
 bool NODEtree<Key, Value>::hasLeft() const {
+    if (this->getLeft() == nullptr) {
+        return false;
+    } else {
+        return true;
+    }
 
 }
 
 template <class Key, class Value>
 bool NODEtree<Key, Value>::hasRight() const {
-
+    if (this->getRight() == nullptr) {
+        return false;
+    } else {
+        return true;
+    }
 }
 
 template <class Key, class Value>
 bool NODEtree<Key, Value>::isExternal() const {
-
+    if (this->getLeft() == nullptr && this->getRight() == nullptr) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 template <class Key, class Value>
 void NODEtree<Key, Value>::insertValue(const Value& v) {
+    this -> values.push_back(v);
 
 }
 
