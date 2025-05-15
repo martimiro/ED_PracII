@@ -37,6 +37,18 @@ class BSTtree {
 // Constructor
 template <class Key, class Value>
 BSTtree <Key, Value>::BSTtree() {
+
+}
+
+// Constructor còpia
+template <class Key, class Value>
+BSTtree <Key, Value>::BSTtree(const BSTtree<Key, Value>& orig) {
+
+}
+
+// Destructor
+template <class Key, class Value>
+BSTtree <Key, Value>::~BSTtree() {
     
 }
 
