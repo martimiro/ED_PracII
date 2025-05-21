@@ -54,19 +54,27 @@ class NODEtree {
 // Constructor
 template <class Key, class Value>
 NODEtree <Key, Value>::NODEtree(const Key& key) {
-
+    this -> key = key;
+    this -> right = nullptr;
+    this -> left = nullptr;
+    this -> parent = nullptr;
 }
 
 // Constructor còpia
 template <class Key, class Value>
 NODEtree <Key, Value>::NODEtree(const NODEtree<Key,Value>& orig) {
-
+    this -> key = orig.key;
+    this -> values = orig.values;
+    this -> right = nullptr;
+    this -> left = nullptr;
+    this -> parent = nullptr;
 }
 
 // Destructor
 template <class Key, class Value>
 NODEtree <Key, Value>::~NODEtree() {
-
+    delete left;
+    delete right;
 }
 
 // Setters
@@ -176,7 +184,7 @@ int NODEtree<Key, Value>::depth() const {
 template <class Key, class Value>
 int NODEtree<Key, Value>::height() const {
     if (this -> getRight() == nullptr && this -> getLeft() == nullptr) {
-        return 0;
+        return 1;
     } else {
         int heightEsq = 0;
         int heightDrt = 0;
@@ -190,16 +198,16 @@ int NODEtree<Key, Value>::height() const {
         }
 
         if (heightDrt > heightEsq) {
-            return heightDrt;
+            return 1 + heightDrt;
         } else {
-            return heightEsq;
+            return 1 + heightEsq;
         }
     }
 }
 
 template <class Key, class Value>
 bool NODEtree<Key, Value>::operator==(const NODEtree<Key, Value>& node) const {
-    if (this -> getKey() == node -> getKey() && this -> getValue() == node -> getValue()) {
+    if (this -> getKey() == node.getKey() && this -> getValue() == node.getValue()) {
         return true;
     } else {
         return false;
