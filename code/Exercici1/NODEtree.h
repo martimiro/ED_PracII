@@ -18,18 +18,23 @@ class NODEtree {
         void setKey(Key key);
         void setValue(Value value);
 
-        void setRight(NODEtree* right);
-        void setLeft(NODEtree* left);
-        void setParent(NODEtree* parent);
+        void setRight(NODEtree<Key, Value>* right);
+        void setLeft(NODEtree<Key, Value>* left);
+        void setParent(NODEtree<Key, Value>* parent);
 
         /* Consultors */
         // Declareu-hi aquí els consultors (getters) dels atributs que manquen
         const Key& getKey() const;
+        Key& getKey();
         const vector<Value>& getValue() const;
+        vector<Value>& getValue();
 
-        const NODEtree* getRight() const;
-        const NODEtree* getLeft() const;
-        const NODEtree* getParent() const;
+        const NODEtree<Key, Value>* getRight() const;
+        NODEtree<Key, Value>* getRight();
+        const NODEtree<Key, Value>* getLeft() const;
+        NODEtree<Key, Value>* getLeft();
+        const NODEtree<Key, Value>* getParent() const;
+        NODEtree<Key, Value>* getParent();
 
         /* Operacions */
         bool isRoot() const;
@@ -46,9 +51,9 @@ class NODEtree {
         Key key;
         vector<Value> values;
         // Afegiu-hi aquí els atributs que manquen
-        NODEtree* right;
-        NODEtree* left;
-        NODEtree* parent;
+        NODEtree<Key, Value>* right;
+        NODEtree<Key, Value>* left;
+        NODEtree<Key, Value>* parent;
 };
 
 // Constructor
@@ -85,7 +90,8 @@ void NODEtree <Key, Value>::setKey(Key key) {
 
 template <class Key, class Value>
 void NODEtree <Key, Value>::setValue(Value value) {
-    this -> value = value;
+    values.clear();
+    values.push_back(value);
 }
 
 template <class Key, class Value>
@@ -110,7 +116,17 @@ const Key& NODEtree<Key, Value>::getKey() const {
 }
 
 template <class Key, class Value>
+Key& NODEtree<Key, Value>::getKey() {
+    return key;
+}
+
+template <class Key, class Value>
 const vector<Value>& NODEtree<Key, Value>::getValue() const {
+    return values;
+}
+
+template <class Key, class Value>
+vector<Value>& NODEtree<Key, Value>::getValue() {
     return values;
 }
 
@@ -120,12 +136,27 @@ const NODEtree<Key, Value>* NODEtree<Key, Value>::getRight() const {
 }
 
 template <class Key, class Value>
+NODEtree<Key, Value>* NODEtree<Key, Value>::getRight() {
+    return right;
+}
+
+template <class Key, class Value>
 const NODEtree<Key, Value>* NODEtree<Key, Value>::getLeft() const {
     return left;
 }
 
 template <class Key, class Value>
+NODEtree<Key, Value>* NODEtree<Key, Value>::getLeft() {
+    return left;
+}
+
+template <class Key, class Value>
 const NODEtree<Key, Value>* NODEtree<Key, Value>::getParent() const {
+    return parent;
+}
+
+template <class Key, class Value>
+NODEtree<Key, Value>* NODEtree<Key, Value>::getParent() {
     return parent;
 }
 
@@ -213,5 +244,4 @@ bool NODEtree<Key, Value>::operator==(const NODEtree<Key, Value>& node) const {
         return false;
     }
 }
-
 #endif /* NODETREE_H */
