@@ -3,7 +3,10 @@
     "vector": "cpp",
     "memory": "cpp",
     "deque": "cpp",
-    "string": "cpp"
+    "string": "cpp",
+    "stdexcept": "cpp",
+    "ostream": "cpp",
+    "iostream": "cpp"
   },
   "C_Cpp_Runner.msvcBatchPath": "",
   "C_Cpp_Runner.cCompilerPath": "gcc",
