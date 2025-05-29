@@ -244,4 +244,5 @@ bool NODEtree<Key, Value>::operator==(const NODEtree<Key, Value>& node) const {
         return false;
     }
 }
+
 #endif /* NODETREE_H */

@@ -32,7 +32,13 @@ class BSTtree {
         void printSecondLargestKey() const;  
         void mirrorTree();  
         list<NODEtree<Key, Value>*> getLeafNodes() const;
- 
+
+        vector<NODEtree<Key, Value>*> printKeysAtLevel(int level) const;
+        void getKeysAtLevel(NODEtree<Key, Value> *nodeAux, int level, vector<NODEtree<Key, Value>*>& llista) const;
+
+        int countFullNodesAtLevel(int level) const;
+        void countFullNodesAtLevelAux(int level, NODEtree<Key, Value>* nodeAux, int currentLevel, vector<NODEtree<Key, Value>*>& llista) const;
+
     protected: 
         NODEtree<Key,Value>* root; 
         NODEtree<Key,Value>* search(const Key& k) const; 
@@ -349,5 +355,59 @@ NODEtree<Key, Value>* BSTtree<Key, Value>::search(const Key& k) const {
     
     return nullptr;
 }
+
+// Mètodes exercici 
+
+// Modificació I
+template <class Key, class Value>
+vector<NODEtree<Key, Value>*> BSTtree<Key, Value>::printKeysAtLevel(int level) const {
+    vector<NODEtree<Key, Value>*> llistaKeys;
+    getKeysAtLevel(root, level, llistaKeys);
+    return llistaKeys;
+}
+
+template <class Key, class Value>
+void BSTtree<Key, Value>::getKeysAtLevel(NODEtree<Key, Value>* nodeAux, int level, vector<NODEtree<Key, Value>*>& llista) const {
+    if (nodeAux == nullptr) {
+        return;
+    }
+    if (nodeAux->depth() == level) {
+        llista.push_back(nodeAux);
+    }
+
+    getKeysAtLevel(nodeAux->getLeft(), level, llista);
+    getKeysAtLevel(nodeAux->getRight(), level, llista);
+}
+
+// Modificació II
+template <class Key, class Value>
+int BSTtree<Key, Value>::countFullNodesAtLevel(int level) const {
+    NODEtree<Key, Value>* nodeAux = root;
+    int currentLevel = 0;
+    vector<NODEtree<Key, Value>*> llista;
+
+    countFullNodesAtLevelAux(level, nodeAux, 0, llista);
+
+    int lenght = llista.size();
+
+    return lenght;
+}
+
+template <class Key, class Value>
+void BSTtree<Key, Value>::countFullNodesAtLevelAux(int level, NODEtree<Key, Value>* nodeAux, int currentLevel, vector<NODEtree<Key, Value>*>& llista) const {
+    if (nodeAux == nullptr) {
+        return;
+    }
+
+    if ((currentLevel == level) && ((nodeAux -> getLeft() != nullptr) && (nodeAux->getRight() != nullptr))) {
+        llista.push_back(nodeAux);
+    }
+
+    currentLevel = currentLevel + 1;
+    countFullNodesAtLevelAux(level, nodeAux->getLeft(), currentLevel, llista);
+    countFullNodesAtLevelAux(level, nodeAux->getRight(), currentLevel, llista);
+}
+
+// Modificació III
 
 #endif /* BSTTREE_H */
